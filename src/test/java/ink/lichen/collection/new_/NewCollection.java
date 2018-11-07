@@ -2,7 +2,9 @@ package ink.lichen.collection.new_;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.HashMultiset;
+import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Multimaps;
 import com.google.common.collect.Multiset;
 import com.google.common.collect.Multisets;
 import org.junit.Test;
@@ -39,8 +41,24 @@ public class NewCollection {
         multiset.add("1");
         multiset.add("1");
         System.out.println(multiset.count("1"));
+        System.out.println(multiset.count("0"));
     }
 
+
+    @Test
+    public void testGuavaMulitimap(){
+        //SetMultimap
+        ListMultimap<Integer,Integer> listMultimap = ArrayListMultimap.create();
+        listMultimap.put(1,1);
+        listMultimap.put(1,2);
+        listMultimap.put(1,3);
+        List<Integer> list = listMultimap.get(1);
+        System.out.println(list);
+        List<Integer> nullList = listMultimap.get(2);
+        System.out.println(nullList);
+
+        Map map = listMultimap.asMap();
+    }
 
 
 }
