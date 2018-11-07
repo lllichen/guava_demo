@@ -1,13 +1,8 @@
 package ink.lichen.collection.new_;
 
-import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.HashMultiset;
-import com.google.common.collect.ListMultimap;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Multimaps;
-import com.google.common.collect.Multiset;
-import com.google.common.collect.Multisets;
+import com.google.common.collect.*;
 import org.junit.Test;
+import sun.security.provider.certpath.Vertex;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,6 +27,8 @@ public class NewCollection {
             }
         }
     }
+
+
 
     @Test
     public void testGuavaMutiset(){
@@ -60,5 +57,64 @@ public class NewCollection {
         Map map = listMultimap.asMap();
     }
 
+
+    @Test
+    public void testJDKBiMap(){
+        Map<String, Integer> nameToId = Maps.newHashMap();
+        Map<Integer, String> idToName = Maps.newHashMap();
+
+        nameToId.put("Bob", 42);
+        idToName.put(42, "Bob");
+    }
+
+    @Test
+    public void testGuavaBiMap(){
+        BiMap<String, Integer> userId = HashBiMap.create();
+        userId.put("Bob",42);
+        String userForId = userId.inverse().get(42);
+    }
+
+    @Test
+    public void testJDKTable(){
+//        Map<FirstName, Map<LastName, Person>>
+        Map<Integer, Map<Integer, Integer>> map = new HashMap<>();
+    }
+
+    @Test
+    public void testTable(){
+        Table<String,String,Integer> table = HashBasedTable.create();
+        table.put("li","san",20);
+        table.put("li","si",20);
+        table.put("li","wu",20);
+        table.put("zhang","san",20);
+        table.put("zhang","si",20);
+        table.put("zhang","wu",20);
+        Map map =  table.row("li");
+        System.out.println(map);
+
+        Map columnMap = table.column("san");
+        System.out.println(columnMap);
+    }
+
+    @Test
+    public void testClassToInstanceMap(){
+        ClassToInstanceMap<Number> numberDefaults=MutableClassToInstanceMap.create();
+        numberDefaults.putInstance(Integer.class, Integer.valueOf(2));
+        numberDefaults.putInstance(Long.class,100L);
+        System.out.println( numberDefaults.getInstance(Integer.class));
+    }
+
+
+
+    @Test
+    public void testRangeSet(){
+        RangeSet<Integer> rangeSet = TreeRangeSet.create();
+        rangeSet.add(Range.closed(1, 10)); // {[1,10]}
+        rangeSet.add(Range.closedOpen(11, 15));//不相连区间:{[1,10], [11,15)}
+        rangeSet.add(Range.closedOpen(15, 20)); //相连区间; {[1,10], [11,20)}
+        rangeSet.add(Range.openClosed(0, 0)); //空区间; {[1,10], [11,20)}
+        rangeSet.remove(Range.open(5, 10)); //分割[1, 10]; {[1,5], [10,10], [11,20)}
+
+    }
 
 }
