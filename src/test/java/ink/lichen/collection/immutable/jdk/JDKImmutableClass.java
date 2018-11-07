@@ -1,6 +1,7 @@
 package ink.lichen.collection.immutable.jdk;
 
 import ink.lichen.collection.support.Support;
+import org.junit.Test;
 
 import java.util.Collections;
 import java.util.List;
@@ -22,8 +23,8 @@ import java.util.List;
  */
 public class JDKImmutableClass {
 
-
-    public static void main(String[] args) {
+    @Test
+    public void testAdd(){
         List<String> list = Support.createList();
 
         List unmodifiableList = Collections.unmodifiableList(list);
@@ -31,6 +32,9 @@ public class JDKImmutableClass {
         list.add("a");
         System.out.println(unmodifiableList.size());
         System.out.println(unmodifiableList.add("a"));
-
     }
+
+
+
+
 }
