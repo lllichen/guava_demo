@@ -1,6 +1,6 @@
-package collection.immutable.guava;
+package ink.lichen.collection.immutable.guava;
 
-import collection.support.DemoFactory;
+import ink.lichen.collection.support.Support;
 import com.google.common.collect.ImmutableList;
 
 import java.util.List;
@@ -14,7 +14,7 @@ public class GuavaImmutableClass {
 
 
     public static void main(String[] args) {
-        List<String> list = DemoFactory.createList();
+        List<String> list = Support.createList();
         ImmutableList immutableList = ImmutableList.copyOf(list);
         System.out.println(immutableList.size());
         list.add("a");

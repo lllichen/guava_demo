@@ -1,4 +1,4 @@
-package collection.support;
+package ink.lichen.collection.support;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by lichen@daojia.com on 2018-11-7.
  */
-public class DemoFactory {
+public class Support {
 
 
     public static List<String> createList(){

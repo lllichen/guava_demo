@@ -1,6 +1,6 @@
-package collection.immutable.jdk;
+package ink.lichen.collection.immutable.jdk;
 
-import collection.support.DemoFactory;
+import ink.lichen.collection.support.Support;
 
 import java.util.Collections;
 import java.util.List;
@@ -24,7 +24,7 @@ public class JDKImmutableClass {
 
 
     public static void main(String[] args) {
-        List<String> list = DemoFactory.createList();
+        List<String> list = Support.createList();
 
         List unmodifiableList = Collections.unmodifiableList(list);
         System.out.println(unmodifiableList.size());

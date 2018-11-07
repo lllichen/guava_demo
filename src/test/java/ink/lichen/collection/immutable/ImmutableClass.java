@@ -1,4 +1,4 @@
-package collection.immutable;
+package ink.lichen.collection.immutable;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.HashMultiset;
