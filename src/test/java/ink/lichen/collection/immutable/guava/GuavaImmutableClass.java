@@ -2,6 +2,7 @@ package ink.lichen.collection.immutable.guava;
 
 import ink.lichen.collection.support.Support;
 import com.google.common.collect.ImmutableList;
+import org.junit.Test;
 
 import java.util.List;
 
@@ -10,10 +11,8 @@ import java.util.List;
  */
 public class GuavaImmutableClass {
 
-
-
-
-    public static void main(String[] args) {
+    @Test
+    public void testAdd(){
         List<String> list = Support.createList();
         ImmutableList immutableList = ImmutableList.copyOf(list);
         System.out.println(immutableList.size());
@@ -21,4 +20,6 @@ public class GuavaImmutableClass {
         System.out.println(immutableList.size());
         immutableList.add("a");
     }
+
+
 }
