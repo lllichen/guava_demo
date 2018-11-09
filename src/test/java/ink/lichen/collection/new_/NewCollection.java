@@ -2,7 +2,6 @@ package ink.lichen.collection.new_;
 
 import com.google.common.collect.*;
 import org.junit.Test;
-import sun.security.provider.certpath.Vertex;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -77,7 +76,6 @@ public class NewCollection {
     @Test
     public void testJDKTable(){
 //        Map<FirstName, Map<LastName, Person>>
-        Map<Integer, Map<Integer, Integer>> map = new HashMap<>();
     }
 
     @Test
